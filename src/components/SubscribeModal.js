@@ -1,27 +1,47 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {Dialog, Button, DialogTitle, DialogContent, DialogActions, IconButton } from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close'
 
-export default function SubscribeModal(props) {
+class SubscribeModal extends Component {
+  constructor(props) {
+    super(props)
+    this.handleClose = this.handleClose.bind(this);
+    this.handleClickOpen = this.handleClickOpen.bind(this);
 
-  return (
-    <div>
-      <div>Hello from subscribe modal.</div>
-      <Dialog onClose={props.onClose} aria-labelledby="customized-dialog-title" open={props.open}>
+    this.state = {
+      open: false
+    }
+  }
 
-      <DialogTitle id="customized-dialog-title" onClose={props.onClose}>Modal title</DialogTitle>
+  handleClickOpen() { this.setState({open: true});}
 
-      <DialogContent dividers></DialogContent>
+  handleClose() { this.setState({open: false});}
 
-      <DialogActions>
-        <Button autoFocus onClick={props.onClose} color="primary">Save changes</Button>
-      </DialogActions>
+  render() {
+    return (
+      <div>
+        <div style={{padding: '20px'}}>Hello from subscribe modal.</div>
+        <Button autoFocus onClick={this.handleClickOpen} color="primary">Free Ebook</Button>
+        <Dialog  aria-labelledby="customized-dialog-title" open={this.state.open}>
 
-    </Dialog>
-  </div>
-  )
+        <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>Modal title</DialogTitle>
+
+        <DialogContent dividers>
+          <h1>Email</h1>
+        </DialogContent>
+
+        <DialogActions>
+          <Button autoFocus onClick={this.handleClose} color="primary">Save changes</Button>
+        </DialogActions>
+
+        </Dialog>
+      </div>
+    )
+  }
 } 
+
+export default SubscribeModal
 
 SubscribeModal.propTypes = {
   open: PropTypes.bool,
