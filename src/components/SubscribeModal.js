@@ -8,21 +8,14 @@ export default function SubscribeModal(props) {
   return (
     <div>
       <div>Hello from subscribe modal.</div>
-
       <Dialog onClose={props.onClose} aria-labelledby="customized-dialog-title" open={props.open}>
 
-      <DialogTitle id="customized-dialog-title" onClose={props.onClose}>
-        Modal title
-      </DialogTitle>
+      <DialogTitle id="customized-dialog-title" onClose={props.onClose}>Modal title</DialogTitle>
 
-      <DialogContent dividers>
-
-      </DialogContent>
+      <DialogContent dividers></DialogContent>
 
       <DialogActions>
-        <Button autoFocus onClick={props.onClose} color="primary">
-          Save changes
-        </Button>
+        <Button autoFocus onClick={props.onClose} color="primary">Save changes</Button>
       </DialogActions>
 
     </Dialog>
